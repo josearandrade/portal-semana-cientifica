@@ -517,6 +517,64 @@ nav{
   right: -1rem;
 }
 
+/* layout dos APOIADORES INSTITUCIONAIS */
+.sponsors {
+  background: #fff;
+  position: relative;
+  padding: clamp(3rem, 8vw, 6rem) 1rem;
+}
+
+.sponsors__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sponsors h2 {
+  text-align: center;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--blue-800);
+}
+
+/* Grid dos patrocinadores */
+.sponsors__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.sponsor-card {
+  background: #f1f5f9;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.sponsor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
+}
+
+.sponsor-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--blue-700);
+}
+
+.sponsor-card img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.1));
+}
 
 /* ===============================
    Conteúdo do FOOTER
