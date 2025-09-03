@@ -21,7 +21,7 @@
                 <span class="h1-large">Informática Biomédica</span>
             </h1>
 
-        <a href="#sobre-nos" class="cta">Saiba mais!</a>
+        <a href="#sobre" class="cta">Saiba mais!</a>
         <span class="hero__year">2025</span>
         </div>
 
@@ -31,41 +31,63 @@
 
     <main>
         <!--Sobre nós-->
-            <section id="sobre-nos" class="section">
-                <h2>Sobre Nós</h2>
-                <p>
-                    A Semana Científica da Informática Biomédica é um evento realizado pela Universidade de São Paulo (USP), seu principal objetivo é promover a divulgação científica e valorizar os trabalhos desenvolvidos na graduação. O maior destaque é a apresentação dos Trabalhos de Conclusão de Curso (TCCs) de todos os formandos em Informática Biomédica do ano.
-                </p>
-                <p>
-                    Além disso, a programação inclui palestras com convidados especiais, sessões de pôsteres e atividades voltadas para o fortalecimento acadêmico e profissional dos estudantes.
-                </p>
-            </section>
+        <section class="about" id="sobre">
+            <div class="about__container">
 
-        <!--Apresentadores-->
-            <section id="apresentadores" class="section">
-            <h2>Conheça Nossos Apresentadores</h2>
-            <div class="cards-container">
-                <div class="card">
-                    <img src="assets/img/presenter1.jpg" alt="Foto Guilherme">
-                    <h3>Guilherme</h3>
-                    <p>Graduando em Informática Biomédica</p>
+                <div class="about__content">
+                    <h2>SOBRE NÓS</h2>
+                    <p>
+                        A <span class="highlight">Semana Científica da Informática Biomédica</span>
+                        é um evento que reúne estudantes, professores e profissionais da área
+                        para compartilhar conhecimento e experiências.
+                    </p>
+                    <p>
+                        O objetivo é promover a integração e a divulgação científica em temas
+                        atuais e relevantes para a comunidade acadêmica e profissional.
+                    </p>
                 </div>
-                <div class="card">
-                    <img src="assets/img/presenter2.jpg" alt="Foto Rosana">
-                    <h3>Rosana</h3>
-                    <p>Graduanda em Informática Biomédica</p>
-                </div>
-                <div class="card">
-                    <img src="assets/img/presenter3.jpg" alt="Foto Carlos">
-                    <h3>Carlos</h3>
-                    <p>Graduando em Informática Biomédica</p>
-                </div>
-                <div class="card">
-                    <img src="assets/img/presenter4.jpg" alt="Foto Patrícia">
-                    <h3>Patrícia</h3>
-                    <p>Graduanda em Informática Biomédica</p>
+
+                <div class="about__image">
+                    <img src="assets/about-image.jpg" alt="Ilustração lateral - SOBRE NÓS">
                 </div>
             </div>
+        </section>
+
+
+        <!--Apresentadores-->
+            <section id="apresentadores" class="presenters">
+                <div class="presenters_container">
+                    <h2>Conheça Nossos Apresentadores</h2>
+            
+                    <div class="presenters__grid">
+                        <div class="presenters__carousel">
+                            <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+                        
+                            <div class="presenters__track">
+
+                                <div class="presenter-card">
+                                    <img src="assets/presenter1.jpg" alt="Foto do apresentador 1">
+                                    <h3>Nome do Apresentador 1</h3>
+                                    <p>Breve descrição sobre quem é este apresentador e sua atuação.</p>
+                                </div>
+
+                                <div class="presenter-card">
+                                    <img src="assets/presenter2.jpg" alt="Foto do apresentador 2">
+                                    <h3>Nome do Apresentador 2</h3>
+                                    <p>Breve descrição sobre quem é este apresentador e sua atuação.</p>
+                                </div>
+
+                                <div class="presenter-card">
+                                    <img src="assets/presenter3.jpg" alt="Foto do apresentador 3">
+                                    <h3>Nome do Apresentador 3</h3>
+                                    <p>Breve descrição sobre quem é este apresentador e sua atuação.</p>
+                                </div>
+                                <!-- adicionar quantos cards quiser -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </section>        
 
         <!--Apoiadores Institucionais-->
@@ -94,5 +116,21 @@
 
     <script src="assets/js/main.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+
+    <script>
+        const track = document.querySelector(".presenters__track");
+        const prevBtn = document.querySelector(".carousel-btn.prev");
+        const nextBtn = document.querySelector(".carousel-btn.next");
+
+        const cardWidth = 300; // largura aproximada de cada card + gap
+
+        nextBtn.addEventListener("click", () => {
+            track.scrollBy({ left: cardWidth, behavior: "smooth" });
+        });
+
+        prevBtn.addEventListener("click", () => {
+            track.scrollBy({ left: -cardWidth, behavior: "smooth" });
+        });
+    </script>
 </body>
 </html>

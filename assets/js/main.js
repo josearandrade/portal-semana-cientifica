@@ -20,4 +20,21 @@ function loadComponent(url, elementId) {
 document.addEventListener("DOMContentLoaded", function() {
     loadComponent('/partials/header.html', 'header-placeholder');
     loadComponent('/partials/footer.html', 'footer-placeholder');
+
+    // --- Código do carrossel ---
+    const track = document.querySelector(".presenters__track");
+    const prevBtn = document.querySelector(".carousel-btn.prev");
+    const nextBtn = document.querySelector(".carousel-btn.next");
+
+    if (track && prevBtn && nextBtn) {
+        const cardWidth = 300; // largura aproximada de cada card + gap
+
+        nextBtn.addEventListener("click", () => {
+            track.scrollBy({ left: cardWidth, behavior: "smooth" });
+        });
+
+        prevBtn.addEventListener("click", () => {
+            track.scrollBy({ left: -cardWidth, behavior: "smooth" });
+        });
+    }
 });

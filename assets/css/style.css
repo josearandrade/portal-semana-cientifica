@@ -351,6 +351,173 @@ nav{
   opacity: .25;
 }
 
+/* layout do SOBRE NÓS  */
+.about {
+  padding: clamp(3rem, 8vw, 6rem) 1rem;
+  background: #f8fafc; /* fundo clarinho */
+}
+
+.about__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Coluna do texto */
+.about__content h2 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  color: var(--blue-800); /* azul escuro para o título */
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.about__content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #1e293b; /* cinza bem escuro */
+}
+
+.about__content strong,
+.about__content span.highlight {
+  color: #4ade80; /* verde claro */
+  font-weight: 700;
+}
+
+/* Coluna da imagem */
+.about__image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 28px rgba(0,0,0,.12);
+  display: block;
+  margin: 0 auto;
+}
+
+/* layout do APRESENTADORES */
+.presenters {
+  background: var(--blue-800); /* azul escuro do fundo */
+  padding: clamp(3rem, 8vw, 6rem) 1rem;
+  color: #fff;
+  width: 100%;
+}
+
+.presenters__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.presenters h2 {
+  text-align: center;
+  font-size: clamp(1.4rem, 3.2vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.presenters__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.presenter-card {
+  background: var(--blue-600, #2563eb); /* azul mais claro para contraste */
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.presenter-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.35);
+}
+
+.presenter-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,.25);
+}
+
+.presenter-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+  color: #f0f9ff;
+}
+
+.presenter-card p {
+  font-size: .95rem;
+  line-height: 1.5;
+  color: #e0f2fe;
+}
+
+.presenters__carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.presenters__track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.presenters__track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.presenter-card {
+  flex: 0 0 280px; /* largura fixa dos cards */
+  background: var(--blue-600, #2563eb);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+.carousel-btn {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: .5rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.carousel-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.carousel-btn.prev {
+  position: absolute;
+  left: -1rem;
+}
+
+.carousel-btn.next {
+  position: absolute;
+  right: -1rem;
+}
+
+
 /* ===============================
    Conteúdo do FOOTER
 ================================== */
@@ -416,6 +583,7 @@ nav{
 /* ============================
 Conteúdo para responsividade
 =============================== */
+/* Responsividade do hero */
 @media (max-width: 720px){
   .hero{
     min-height: 64vh;
@@ -430,6 +598,18 @@ Conteúdo para responsividade
     font-size: clamp(2.4rem, 14vw, 4.8rem);
   }
 
+/* Responsividade do sobre nós*/
+@media (max-width: 768px) {
+  .about__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .about__image {
+    order: -1; /* imagem vem primeiro no mobile */
+    margin-bottom: 2rem;
+  }
+}
 /* teste de responsividade
 @media (max-width: 999px){
     .nav-links{
