@@ -1,17 +1,34 @@
 /* assets/css/style.css */
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-    color: #333;
+/* ===============================
+   Variáveis e utilidades
+================================== */
+:root{
+  --blue-900:#0e2d66;
+  --blue-800:#173c7a;
+  --blue-700:#1e6091;
+  --blue-600:#2a72c2;
+  --cyan-300:#66d9ff;
+  --text:#1d252e;
+  --bg:#f7f9fb;
+  --white:#fff;
 }
 
-/* Conteúdo principal */
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/*==================
+Conteúdo principal
+====================*/
 main {
     flex-grow: 1; 
     max-width: 900px;
@@ -19,39 +36,111 @@ main {
     padding: 0 1rem;
 }
 
-/* Estilos do Header (carregado via JS) */
-.main-header {
-    background-color: #fff;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/*==================
+Conteúdo do HEADER
+====================*/
+.main-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  padding: .75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
 
-/* logo */
+nav{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .logo{
-    width: 50%;
-    display: flex;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  text-decoration: none;
 }
 
-.logo-link{
-    height: 10%;
-    display: flex;
-    text-decoration: none;
-}
-
-.logo-link img{
-    height: 10.125rem;
-    display: flex;
+.logo img{
+  width: 120px;
+  height: auto;
 }
 
 .logo-text{
-    display: block;
-    margin-top: 1.5rem;
-    text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+  text-transform: uppercase;
 }
+
+.brand-top{
+  font-size: .75rem;
+  letter-spacing: .12em;
+  color: #1e6091;
+  font-weight: 700;
+}
+
+.brand-mid{
+  font-size: 1rem;
+  letter-spacing: .08em;
+  color: #173c7a;
+  font-weight: 900;
+}
+
+.brand-year{
+  font-size: .9rem;
+  color: #1e6091;
+  font-weight: 800;
+}
+
+.nav-links{
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a{
+  color: #1e6091;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: .2s;
+}
+
+.nav-links a:hover{
+  color: #173c7a;
+  border-bottom: 2px solid #173c7a;
+}
+
+.mobile-menu{
+  display: none;
+  background: none;
+  border: 0;
+  padding: .25rem;
+  cursor: pointer;
+}
+.mobile-menu span{
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #1e6091;
+  margin: 5px 0;
+  border-radius: 1px;
+}
+
+@media (max-width: 840px){
+  .nav-links{ display: none; }
+  .mobile-menu{ display: inline-block; }
+  .logo-text{ display: none; } /* compacta no mobile */
+}
+
 
 .logo-link span{
     font-family: Kollektif;
@@ -130,6 +219,217 @@ nav{
     background: #1E6091;
 }
 
+/*===============================
+   Conteúdo da HERO
+================================== */
+.hero{
+  position: relative;
+  background: linear-gradient(135deg, var(--blue-800) 0%, var(--blue-700) 60%);
+  color: #e8f6ff;
+  min-height: clamp(420px, 72vh, 760px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero__content{
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  width: 100%;
+}
+
+.hero h1{
+  margin: 0 0 1.5rem 0;
+  line-height: 1.03;
+  text-transform: uppercase;
+}
+
+.h1-small{
+  display: block;
+  font-weight: 700;
+  letter-spacing: .08em;
+  font-size: clamp(1rem, 2.8vw, 1.7rem);
+}
+
+.h1-large{
+  display: block;
+  font-weight: 900;
+  letter-spacing: .06em;
+  font-size: clamp(2rem, 8vw, 5rem);
+  text-shadow: 0 6px 18px rgba(0,0,0,.18);  
+}
+
+/* Botão oval com glow */
+.cta{
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 1.1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #1e6091, #2da3ff);
+  border: 2.5px solid rgba(255,255,255,.9);     /* anel branco */
+  box-shadow:
+    inset 0 2px 6px rgba(255,255,255,.25),
+    0 0 0 10px rgba(255,255,255,.08),
+    0 18px 32px rgba(0,160,255,.38);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.cta:hover{
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    inset 0 2px 6px rgba(255,255,255,.25),
+    0 0 0 12px rgba(255,255,255,.10),
+    0 24px 40px rgba(0,160,255,.5);
+}
+
+.cta:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 8px rgba(0,160,255,.6);
+}
+
+/* Ano à direita */
+.hero__year{
+  position: absolute;
+  right: clamp(1rem, 5vw, 4rem);
+  bottom: clamp(1rem, 6vh, 2rem);
+  font-size: clamp(2.8rem, 11vw, 6.2rem);
+  font-weight: 800;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.88);
+  text-shadow: 0 8px 24px rgba(0,0,0,.25);
+  z-index: 1;
+}
+
+/* Camada decorativa da hero (sem imagem externa) */
+
+/* Camada de fundo do hero */
+.hero__bg{
+  position: absolute;
+  inset: 0;           /* ocupa toda a área do hero */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 1) halo suave no canto direito (elipse) */
+.hero__bg::before{
+  content: "";
+  position: absolute;
+  right: -20%;
+  top: -10%;
+  width: 120%;
+  height: 140%;
+  background:
+    radial-gradient(60% 60% at 85% 40%, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 60%),
+    conic-gradient(from 0deg at 85% 40%, rgba(255,255,255,.08), rgba(255,255,255,0) 60%);
+  mix-blend-mode: screen;
+}
+
+/* 2) anéis concêntricos “tech” */
+.hero__bg::after{
+  content: "";
+  position: absolute;
+  right: -8%;
+  top: -6%;
+  width: 90%;
+  height: 140%;
+  transform: rotate(-12deg);
+  background:
+    repeating-radial-gradient(circle at 85% 45%,
+      rgba(255,255,255,.22) 0 2px,
+      rgba(255,255,255,0) 2px 14px);
+  opacity: .25;
+}
+
+/* ===============================
+   Conteúdo do FOOTER
+================================== */
+.main-footer {
+  background: #fff;
+  color: #333;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Logos pequenas */
+.footer-logos {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.footer-logos img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Ícones sociais */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.footer-social img {
+  width: 28px;
+  height: 28px;
+  filter: none;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.footer-social a:hover img {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* Rodapé inferior */
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.85rem;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================
+Conteúdo para responsividade
+=============================== */
+@media (max-width: 720px){
+  .hero{
+    min-height: 64vh;
+  }
+  .hero__content{
+    text-align: center;
+  }
+  .cta{ margin-inline: auto; }
+  .hero__year{
+    right: 1rem;
+    bottom: .75rem;
+    font-size: clamp(2.4rem, 14vw, 4.8rem);
+  }
+
 /* teste de responsividade
 @media (max-width: 999px){
     .nav-links{
@@ -145,72 +445,4 @@ nav{
 }
 */
 
-/* Conteúdo da hero */
-hero{
-    background: #173c7a;
-    color: #c3e6d9;
-    text-transform: uppercase;
-    font-weight: bold;
-    height: 80vh;
-    flex-grow: 1;
-}
-
-hero span{
-    margin: 8rem 2rem 0.5rem 2rem;
-    padding: 0 0.5rem;
-}
-
-#sm{
-    font-size: 6.644rem;
-}
-
-#ibm{
-    font-size: 8.456rem;
-    margin-top: 0;
-    margin-bottom: 10rem;
-}
-
-#hdata{
-    font-size: 9rem;
-    position: absolute;
-    right: 8.2rem;
-    margin: 0;
-}
-
-.hero-button a{
-    padding: 80px 160px 60px;
-    border: 2px solid #00bfff;
-    border-radius: 50px;
-    background: transparent;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px #00bfff;
-    color: #c3e6d9;
-    text-decoration: none;
-    margin-left: 6rem;
-    top: 10rem;
-    position: relative;
-}
-
-.hero-button a:hover{
-    background: rgba(0, 175, 255, 0.15); /* Um pouco mais de fundo azul transparente */
-    border-color: #66d9ff; /* Borda um pouco mais clara */
-
-    /* Brilho mais intenso ao passar o mouse */
-    box-shadow: 0 0 1.5rem var(--button-glow-color),
-                0 0 0.5rem var(--button-glow-color) inset; /* Intensifica o brilho externo e mantém o interno */
-    transform: translateY(-0.1rem); /* Leve levantamento para um efeito 3D */
-}
-
-.hero-button span{
-    margin-top: 1.5rem;
-    font-size: 4rem;
-}
-
-/* Estilos do Footer (carregado via JS) */
-.main-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: auto; /* Garante que ele fique no final */
 }
