@@ -806,6 +806,8 @@ nav{
   padding: 1.5rem;
   box-shadow: 0 8px 18px rgba(0,0,0,.25);
   transition: transform .25s ease, box-shadow .25s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .speaker-card:hover {
@@ -877,6 +879,42 @@ nav{
   background: var(--blue-800);
   color: #ffffff;
 }
+
+/* Elementos decorativos no fundo da página de apresentadores */
+body.speakers-page::before,
+body.speakers-page::after {
+  content: "";
+  position: absolute;
+  z-index: 0; /* atrás de tudo */
+}
+
+/* Círculo no canto superior esquerdo */
+body.speakers-page::before {
+  top: 50px;
+  left: -120px;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: var(--blue-700, #1e40af);
+  opacity: 0.3;
+}
+
+/* Ondas diagonais no canto inferior direito */
+body.speakers-page::after {
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 200px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.15) 2px,
+    transparent 2px,
+    transparent 12px
+  );
+  opacity: 0.4;
+}
+
 
 /* ===============================
    Conteúdo do FOOTER
