@@ -119,29 +119,6 @@ nav{
   border-bottom: 2px solid #173c7a;
 }
 
-.mobile-menu{
-  display: none;
-  background: none;
-  border: 0;
-  padding: .25rem;
-  cursor: pointer;
-}
-.mobile-menu span{
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #1e6091;
-  margin: 5px 0;
-  border-radius: 1px;
-}
-
-@media (max-width: 840px){
-  .nav-links{ display: none; }
-  .mobile-menu{ display: inline-block; }
-  .logo-text{ display: none; } /* compacta no mobile */
-}
-
-
 .logo-link span{
     font-family: Kollektif;
     font-size: 1.656rem;
@@ -204,19 +181,6 @@ nav{
 .nav-links a:hover{
     color: #fff;
     background: #173c7a;
-}
-
-.mobile-menu{
-    margin-top: 1rem;
-    cursor: pointer;
-    display: none;
-}
-
-.mobile-menu div{
-    width: 2rem;
-    height: 0.250rem;
-    margin: 0.5rem;
-    background: #1E6091;
 }
 
 /*===============================
@@ -642,6 +606,146 @@ nav{
   margin: 0;
 }
 
+/* =========================
+   Conteúdo da PREMIAÇÃO
+========================= */
+.awards {
+  background: var(--blue-800);
+  position: relative;
+  padding: clamp(3rem, 8vw, 6rem) 1rem;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Página de premiação inteira em fundo azul */
+.awards-page {
+  background: var(--blue-800);
+  color: #fff;
+}
+
+.awards-page main {
+  max-width: 1200px; /* mantém o limite só para o conteúdo */
+  background: transparent; /* tira o fundo branco herdado */
+}
+
+.awards__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.awards h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  letter-spacing: .05em;
+}
+
+.awards__title {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  justify-content: flex-start; /* fica à esquerda */
+  margin-bottom: 3rem;
+}
+
+.awards__main {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.awards__year {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #fff;
+}
+
+/* layout do Grid de Premiação */
+.awards__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.award-card {
+  background: var(--blue-600);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.award-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px rgba(0,0,0,.35);
+}
+
+.award-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  margin-bottom: 1rem;
+}
+
+.award-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.award-badge {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.award-card p {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin: 0;
+}
+
+/* Elementos visuais decorativos */
+.awards::before {
+  content: "";
+  position: absolute;
+  left: -60px;
+  top: 40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--blue-700);
+  opacity: 0.25;
+}
+
+.awards::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -60px;
+  width: 320px;
+  height: 140px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,.25),
+    rgba(255,255,255,.25) 3px,
+    transparent 3px,
+    transparent 12px
+  );
+  opacity: 0.4;
+}
+
 /* ===============================
    Conteúdo do FOOTER
 ================================== */
@@ -734,6 +838,43 @@ Conteúdo para responsividade
     margin-bottom: 2rem;
   }
 }
+
+/* Responsividade do Header */
+.mobile-menu{
+  display: none;
+  background: none;
+  border: 0;
+  padding: .25rem;
+  cursor: pointer;
+}
+.mobile-menu span{
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #1e6091;
+  margin: 5px 0;
+  border-radius: 1px;
+}
+
+@media (max-width: 840px){
+  .nav-links{ display: none; }
+  .mobile-menu{ display: inline-block; }
+  .logo-text{ display: none; } /* compacta no mobile */
+}
+
+.mobile-menu{
+    margin-top: 1rem;
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-menu div{
+    width: 2rem;
+    height: 0.250rem;
+    margin: 0.5rem;
+    background: #1E6091;
+}
+
 /* teste de responsividade
 @media (max-width: 999px){
     .nav-links{
