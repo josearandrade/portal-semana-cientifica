@@ -872,6 +872,12 @@ nav{
   color: #fff;
 }
 
+/* Fundo azul para toda a página de apresentadores */
+.speakers-page {
+  background: var(--blue-800);
+  color: #ffffff;
+}
+
 /* ===============================
    Conteúdo do FOOTER
 ================================== */
