@@ -31,9 +31,9 @@ Conteúdo principal
 ====================*/
 main {
     flex-grow: 1; 
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /*==================
