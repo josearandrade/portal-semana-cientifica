@@ -21,20 +21,31 @@ document.addEventListener("DOMContentLoaded", function() {
     loadComponent('/partials/header.html', 'header-placeholder');
     loadComponent('/partials/footer.html', 'footer-placeholder');
 
-    // --- Código do carrossel ---
+    // --- Código do carrossel com loop infinito ---
     const track = document.querySelector(".presenters__track");
     const prevBtn = document.querySelector(".carousel-btn.prev");
     const nextBtn = document.querySelector(".carousel-btn.next");
 
     if (track && prevBtn && nextBtn) {
-        const cardWidth = 300; // largura aproximada de cada card + gap
+        const cardWidth = track.querySelector('.presenter-card')?.offsetWidth || 300;
+        const gap = parseInt(getComputedStyle(track).gap) || 24;
+        const scrollAmount = cardWidth + gap;
 
         nextBtn.addEventListener("click", () => {
-            track.scrollBy({ left: cardWidth, behavior: "smooth" });
+            if (track.scrollLeft + track.offsetWidth >= track.scrollWidth - 1) {
+                track.scrollTo({ left: 0, behavior: "smooth" });
+            } else {
+                track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+            }
         });
 
         prevBtn.addEventListener("click", () => {
-            track.scrollBy({ left: -cardWidth, behavior: "smooth" });
+            if (track.scrollLeft <= 1) {
+                track.scrollTo({ left: track.scrollWidth, behavior: "smooth" });
+            } else {
+                track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+            }
         });
     }
 });
+

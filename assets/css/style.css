@@ -372,8 +372,12 @@ nav{
 }
 
 .presenters__container {
-  max-width: 1200px;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
+  overflow: hidden;
+  position: relative;
 }
 
 .presenters h2 {
@@ -394,7 +398,7 @@ nav{
 .presenter-card {
   background: var(--blue-600, #2563eb); /* azul mais claro para contraste */
   border-radius: 1rem;
-  padding: 2rem 1.5rem;
+  padding: 3rem 3rem;
   text-align: center;
   box-shadow: 0 10px 20px rgba(0,0,0,.25);
   transition: transform .25s ease, box-shadow .25s ease;
@@ -432,6 +436,8 @@ nav{
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
+  overflow: hidden;
 }
 
 .presenters__track {
@@ -457,14 +463,29 @@ nav{
 }
 
 .carousel-btn {
-  background: rgba(255,255,255,0.15);
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  padding: .5rem 1rem;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background .2s;
+position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: #fff;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5em;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.carousel-btn svg {
+  width: 28px;
+  height: 28px;
+  fill: #2563eb;
 }
 
 .carousel-btn:hover {
@@ -473,13 +494,15 @@ nav{
 
 .carousel-btn.prev {
   position: absolute;
-  left: -1rem;
+  left: 0.5rem;
 }
 
 .carousel-btn.next {
   position: absolute;
-  right: -1rem;
+  right: 1.1rem;
 }
+
+
 
 /* layout dos APOIADORES INSTITUCIONAIS */
 .sponsors {
@@ -536,7 +559,6 @@ nav{
 }
 
 .sponsor-card img {
-  width: 100%;
   max-width: 180px;
   height: auto;
   margin-bottom: 1.5rem;
@@ -615,6 +637,7 @@ nav{
   padding: clamp(3rem, 8vw, 6rem) 1rem;
   color: #fff;
   overflow: hidden;
+
 }
 
 /* Página de premiação inteira em fundo azul */
@@ -631,7 +654,7 @@ nav{
 .awards__container {
   max-width: 1200px;
   margin: 0 auto;
-  position: relative;
+  position: center;
   z-index: 2;
 }
 
@@ -756,13 +779,6 @@ nav{
   right: -60px;
   width: 320px;
   height: 140px;
-  background-image: repeating-linear-gradient(
-    90deg,
-    rgba(255,255,255,.25),
-    rgba(255,255,255,.25) 3px,
-    transparent 3px,
-    transparent 12px
-  );
   opacity: 0.4;
 }
 
