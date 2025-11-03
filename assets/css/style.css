@@ -502,48 +502,52 @@ position: absolute;
   right: 1.1rem;
 }
 
-
-
-/* layout dos APOIADORES INSTITUCIONAIS */
+/* ==========================
+   Seção de Apoiadores
+========================== */
 .sponsors {
-  background: #fff;
-  position: relative;
+  background: var(--white);
   padding: clamp(3rem, 8vw, 6rem) 1rem;
-  overflow: hidden; /* evita que os triângulos “vazem” fora */
-}
-
-.sponsors__container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.sponsors h2 {
   text-align: center;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  font-weight: 800;
-  margin-bottom: 3rem;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  color: var(--blue-800);
 }
 
-/* Grid dos patrocinadores */
+.sponsors__container h2 {
+  color: var(--blue-800);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  letter-spacing: 0.05em;
+}
+
+.sponsors__group {
+  margin-bottom: 4rem;
+}
+
+.sponsors__subtitle {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: var(--blue-700);
+  font-weight: 800;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .sponsors__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
-  justify-items: center;
 }
 
 .sponsor-card {
   background: #f1f5f9;
   border-radius: 1rem;
   padding: 2rem 1.5rem;
+  width: 240px;
   text-align: center;
   box-shadow: 0 6px 16px rgba(0,0,0,.08);
   transition: transform .25s ease, box-shadow .25s ease;
-  position: relative;
-  z-index: 2;
 }
 
 .sponsor-card:hover {
@@ -551,18 +555,17 @@ position: absolute;
   box-shadow: 0 12px 24px rgba(0,0,0,.15);
 }
 
-.sponsor-card h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--blue-700);
+.sponsor-card img {
+  max-width: 160px;
+  height: auto;
+  margin-bottom: 1.2rem;
 }
 
-.sponsor-card img {
-  max-width: 180px;
-  height: auto;
-  margin-bottom: 1.5rem;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,.1));
+.sponsor-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue-700);
+  margin-bottom: 0.75rem;
 }
 
 /* layout das EDIÇÕES ANTERIORES */
