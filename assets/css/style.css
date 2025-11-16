@@ -3,6 +3,15 @@
 /* ===============================
    Variáveis e utilidades
 ================================== */
+
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+
 :root{
   --blue-900:#0e2d66;
   --blue-800:#173c7a;
@@ -25,6 +34,8 @@ body {
   background: var(--bg);
   color: var(--text);
 }
+
+
 
 /*==================
 Conteúdo principal
@@ -190,7 +201,7 @@ nav{
   position: relative;
   background: linear-gradient(135deg, var(--blue-800) 0%, var(--blue-700) 60%);
   color: #e8f6ff;
-  min-height: clamp(420px, 72vh, 760px);
+  min-height: clamp(400px, 63vh, 650px);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -201,7 +212,6 @@ nav{
   z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
-  padding: clamp(1.25rem, 4vw, 3rem);
   width: 100%;
 }
 
@@ -265,8 +275,7 @@ nav{
 /* Ano à direita */
 .hero__year{
   position: absolute;
-  right: clamp(1rem, 5vw, 4rem);
-  bottom: clamp(1rem, 6vh, 2rem);
+  right: clamp(2rem, 5vw, -4rem);
   font-size: clamp(2.8rem, 11vw, 6.2rem);
   font-weight: 800;
   letter-spacing: .06em;
@@ -538,6 +547,7 @@ position: absolute;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  align-items: stretch; 
 }
 
 .sponsor-card {
@@ -548,6 +558,8 @@ position: absolute;
   text-align: center;
   box-shadow: 0 6px 16px rgba(0,0,0,.08);
   transition: transform .25s ease, box-shadow .25s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .sponsor-card:hover {
@@ -559,6 +571,8 @@ position: absolute;
   max-width: 160px;
   height: auto;
   margin-bottom: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sponsor-card h4 {
@@ -567,6 +581,91 @@ position: absolute;
   color: var(--blue-700);
   margin-bottom: 0.75rem;
 }
+
+/* --- ADICIONE ESTA NOVA REGRA --- */
+/* Isso faz o botão ser "empurrado" para o final do card */
+.sponsor-card .cta {
+    margin-top: auto; 
+}
+
+
+/* =======================================
+   ESTILOS ADICIONAIS - APOIADORES MODERNOS
+========================================== */
+
+/*
+ * 1. O Card do Apoiador (variante --logo)
+ * Usamos um card branco com borda e sombra suaves.
+ */
+.sponsor-card--logo {
+  background: var(--white); /* Fundo branco limpo */
+  border: 1px solid #e2e8f0; /* Borda sutil */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .05); /* Sombra muito suave */
+  
+  width: 190px;   /* Largura fixa */
+  height: 140px;  /* Altura fixa para consistência */
+  padding: 1.5rem; /* Espaçamento interno */
+  
+  /* Alinha o logo perfeitamente no centro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Remove estilos do card padrão que não queremos */
+  text-align: left;
+}
+
+/*
+ * 2. O Link (que envolve o logo)
+ * Faz o link ocupar todo o espaço do card.
+ */
+.sponsor-card--logo .sponsor-card__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+/*
+ * 3. A Imagem (Logo)
+ * Define uma altura máxima e garante que não distorça.
+ */
+.sponsor-card--logo img {
+  max-width: 100%;
+  max-height: 80px; /* Altura máxima para logos */
+  width: auto;      /* Deixa a largura automática */
+  height: auto;     /* Deixa a altura automática */
+  object-fit: contain; /* Garante que o logo caiba sem distorcer */
+  margin-bottom: 0; /* Remove a margem do estilo original */
+  transition: transform .25s ease; /* Animação de hover */
+}
+
+/*
+ * 4. Efeito de Hover
+ * Eleva o card e dá um zoom sutil no logo.
+ */
+.sponsor-card--logo:hover {
+  transform: translateY(-5px); /* Eleva o card */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .08); /* Sombra mais destacada */
+  border-color: var(--blue-600); /* Destaca a borda com seu azul */
+}
+
+.sponsor-card--logo:hover img {
+  transform: scale(1.05); /* Zoom sutil no logo */
+}
+
+/*
+ * 5. Limpeza
+ * Garante que o h4 e o .cta originais não apareçam nesta variante.
+ */
+.sponsor-card--logo h4,
+.sponsor-card--logo .cta {
+  display: none;
+}
+
 
 /* layout das EDIÇÕES ANTERIORES */
 .past-editions {
@@ -1041,11 +1140,11 @@ body.speakers-page::after {
 /* Logos pequenas */
 .footer-logos {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: center;
 }
 .footer-logos img {
-  height: 40px;
+  height: 50px;
   width: auto;
   object-fit: contain;
 }
@@ -1066,13 +1165,14 @@ body.speakers-page::after {
 .footer-social a:hover img {
   transform: scale(1.1);
   opacity: 0.8;
+  
 }
 
 /* Rodapé inferior */
 .footer-bottom {
   width: 100%;
   text-align: center;
-  padding: 1rem 0;
+  padding: 0.05emrem 0;
   font-size: 0.85rem;
   color: #333;
   display: flex;
@@ -1080,85 +1180,364 @@ body.speakers-page::after {
   align-items: center;
 }
 
-/* ============================
-Conteúdo para responsividade
-=============================== */
-/* Responsividade do hero */
-@media (max-width: 720px){
-  .hero{
-    min-height: 64vh;
-  }
-  .hero__content{
-    text-align: center;
-  }
-  .cta{ margin-inline: auto; }
-  .hero__year{
-    right: 1rem;
-    bottom: .75rem;
-    font-size: clamp(2.4rem, 14vw, 4.8rem);
+
+
+
+/* =======================================
+   ESTILOS ADICIONAIS - PROGRAMAÇÃO MODERNA
+========================================== */
+
+/* * 1. Reseta o .schedule__slot
+ * Remove o fundo azul e o transforma em um contêiner 
+ * para empilhar os cards de evento.
+ */
+.schedule__slot {
+  background: transparent; /* Remove o fundo azul original */
+  box-shadow: none;        /* Remove a sombra interna original */
+  border: none;
+  
+  /* Altera para um contêiner flexível que empilha verticalmente */
+  display: flex;
+  flex-direction: column;  /* Empilha os cards */
+  align-items: stretch;    /* Estica os cards para preencher o slot */
+  justify-content: flex-start;
+  
+  padding: 1rem; /* Adiciona um pouco de espaçamento interno */
+  gap: 0.5rem; /* Adiciona um pequeno espaço entre os cards empilhados */
+  min-height: 100px; /* Reduz a altura mínima para acomodar linhas vazias */
+}
+
+/* * 2. Estilo para slots que ficam vazios 
+ * Adiciona uma "caixa" sutil para manter a grade visualmente intacta.
+ */
+.schedule__slot:empty {
+  background: rgba(255, 255, 255, 0.05); /* Fundo muito sutil */
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  min-height: 60px; /* Slots vazios podem ser menores */
+}
+
+
+/* * 3. O Card de Evento (Base)
+ * Este é o estilo principal para cada item da programação.
+ */
+.event-card {
+  background: var(--blue-700); /* Um azul um pouco mais escuro que o original */
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  padding-bottom: 1rem;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+/* * 4. Conteúdo do Card
+ */
+.event-card__time {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cyan-300); /* Usa seu ciano para o horário */
+  margin-bottom: 0.25rem;
+}
+
+.event-card__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem 0;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.event-card__speaker {
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin: 0;
+  color: #e0f2fe; /* Um branco mais suave */
+  line-height: 1.4;
+}
+
+.event-card__extra {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0.35rem 0 0 0;
+  color: #fff;
+  opacity: 0.8;
+}
+
+
+/* * 5. Modificadores de Cor por Tipo de Evento
+ * Isso adiciona a variedade visual moderna.
+ */
+
+/* 🎙️ Palestras (Talks) */
+.event-card--talk {
+  background: #007BFF; /* Azul mais vibrante */
+}
+.event-card--talk .event-card__time {
+  color: #cce5ff;
+}
+
+/* 🎓 Defesas de TCC */
+.event-card--tcc {
+  background: #5a189a; /* Roxo */
+}
+.event-card--tcc .event-card__time {
+  color: #e9d5ff;
+}
+
+/* ☕ Intervalos (Break) */
+.event-card--break {
+  background: #5f6c7b; /* Cinza-azulado */
+}
+.event-card--break .event-card__time {
+  color: #e0e0e0;
+}
+
+/* 🌟 Eventos Especiais (Abertura/Encerramento) */
+.event-card--event {
+  background: #e39600; /* Dourado/Laranja */
+  border: 1px solid #ffc107;
+}
+.event-card--event .event-card__time {
+  color: #fff0cd;
+}
+
+
+/* =======================================
+   ESTILOS ADICIONAIS - TOAST "COPIADO"
+   (Adicionar ao final de assets/css/style.css)
+========================================== */
+
+#copy-toast {
+    position: fixed;
+    bottom: 2rem; /* 32px do fundo */
+    left: 50%;
+    
+    /* Começa fora da tela e centralizado */
+    transform: translateX(-50%) translateY(150%); 
+    
+    background-color: var(--blue-600); /* Usando seu azul */
+    color: white;
+    padding: 1rem 1.5rem; /* 16px vertical, 24px horizontal */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 9999;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    
+    /* Animação */
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.21, 1.02, 0.73, 1), 
+                opacity 0.4s ease-out;
+}
+
+/* Estado visível do toast */
+#copy-toast.show {
+    transform: translateX(-50%) translateY(0); /* Sobe para a posição */
+    opacity: 1;
+}
+
+/* =========================================
+   CÓDIGO DE RESPONSIVIDADE (CONSOLIDADO)
+   ========================================= */
+/* ============================================================
+   MEDIA QUERIES – RESPONSIVIDADE GLOBAL
+   Mobile First até Desktop
+=============================================================== */
+
+/* ------- Telas abaixo de 992px (tablets) ------- */
+@media (max-width: 992px) {
+
+  /* HEADER */
+  nav {
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
   }
 
-/* Responsividade do sobre nós*/
-@media (max-width: 768px) {
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: auto;
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+
+  .hero__year {
+    position: static;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  /* ABOUT */
   .about__container {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
-  .about__image {
-    order: -1; /* imagem vem primeiro no mobile */
-    margin-bottom: 2rem;
+
+  .about__image img {
+    max-width: 350px;
+  }
+
+  /* PRESENTERS */
+  .presenters__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* SPONSORS */
+  .sponsors__grid {
+    gap: 1.5rem;
+  }
+
+  /* PAST EDITIONS */
+  .past-editions__grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  /* SPEAKERS */
+  .speaker-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .speaker-socials {
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
-/* Responsividade do Header */
-.mobile-menu{
-  display: none;
-  background: none;
-  border: 0;
-  padding: .25rem;
-  cursor: pointer;
-}
-.mobile-menu span{
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #1e6091;
-  margin: 5px 0;
-  border-radius: 1px;
+/* -------- Telas abaixo de 768px (celulares grandes) -------- */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .main-header {
+    padding: 1rem;
+  }
+
+  .logo img {
+    width: 90px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: .75rem;
+  }
+
+  .nav-links a {
+    padding: .5rem .8rem;
+    font-size: .9rem;
+  }
+
+  /* HERO */
+  .h1-large {
+    font-size: clamp(1.8rem, 10vw, 3rem);
+  }
+
+  .cta {
+    padding: 1rem 2rem;
+    font-size: .95rem;
+  }
+
+  /* PRESENTERS */
+  .presenter-card {
+    flex: 0 0 230px;
+  }
+
+  /* SPONSORS */
+  .sponsor-card {
+    width: 180px;
+  }
+
+  .sponsor-card--logo {
+    width: 160px;
+    height: 120px;
+  }
+
+  /* SPEAKERS */
+  .speaker-photo img {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* CRONOGRAMA – vira lista vertical */
+  .schedule__header,
+  .schedule__row {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .schedule__time {
+    text-align: left;
+    padding: 0;
+    margin-bottom: .5rem;
+  }
+
+  .schedule__slot {
+    min-height: 80px;
+  }
 }
 
-@media (max-width: 840px){
-  .nav-links{ display: none; }
-  .mobile-menu{ display: inline-block; }
-  .logo-text{ display: none; } /* compacta no mobile */
+/* -------- Telas abaixo de 480px (celulares pequenos) -------- */
+@media (max-width: 480px) {
+
+  /* HEADER */
+  .nav-links {
+    flex-direction: column;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero__year {
+    font-size: 2.5rem;
+  }
+
+  /* ABOUT */
+  .about__content p {
+    font-size: 1rem;
+  }
+
+  /* PRESENTERS */
+  .presenters__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .presenter-card {
+    width: 100%;
+  }
+
+  /* SPONSORS */
+  .sponsors__grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sponsor-card--logo {
+    width: 80%;
+  }
+
+  /* SPEAKERS */
+  .speaker-card {
+    padding: 1rem;
+  }
+
+  /* AWARDS */
+  .awards__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.mobile-menu{
-    margin-top: 1rem;
-    cursor: pointer;
-    display: none;
-}
 
-.mobile-menu div{
-    width: 2rem;
-    height: 0.250rem;
-    margin: 0.5rem;
-    background: #1E6091;
-}
-
-/* teste de responsividade
-@media (max-width: 999px){
-    .nav-links{
-        position: absolute;
-        top: 8vh;
-        right: 0;
-        width: 20vw;
-        height: 92vh;
-        background: blue;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-*/
-}

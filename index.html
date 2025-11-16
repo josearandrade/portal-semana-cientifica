@@ -2,7 +2,9 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,10 +21,11 @@
             <h1>
                 <span class="h1-small">Semana Científica da</span>
                 <span class="h1-large">Informática Biomédica</span>
+                <span class="hero__year">2025</span>
+
             </h1>
 
         <a href="#sobre" class="cta">Saiba mais!</a>
-        <span class="hero__year">2025</span>
         </div>
 
         <!-- camada decorativa -->
@@ -48,7 +51,7 @@
                 </div>
 
                 <div class="about__image">
-                    <img src="assets\imgs\wilson_palestra.jpg" alt="Ilustração lateral - SOBRE NÓS">
+                    <img src="assets\imgs\sobrenos.jpeg" alt="Ilustração lateral - SOBRE NÓS">
                 </div>
             </div>
         </section>
@@ -143,11 +146,7 @@
                                     <p>SofiaFala-Fono: uma análise multifacetada da usabilidade e da dimensão afetiva em tecnologia assistiva.</p>
                                 </div>
 
-                                <div class="presenter-card">
-                                    <img src="/assets/photos/foto_victor_zani.png" alt="Foto do apresentador 14">
-                                    <h3>Victor Hugo Zani</h3>
-                                    <p>Caracterização multiparamétrica por aprendizado profundo da fragilidade óssea de corpos vertebrais em exames de ressonância magnética.</p>
-                                </div>
+
                                 <!-- adicionar quantos cards quiser -->
                             </div>
 
@@ -162,62 +161,77 @@
                 <h2>APOIADORES</h2>
 
                 <!-- Linha 1: Níveis Ouro / Prata / Bronze -->
-                <div class="sponsors__group">
-                <h3 class="sponsors__subtitle">Patrocinadores</h3>
+                    <div class="sponsors__group">
+                <h3 class="sponsors__subtitle">Patrocinadores Principais</h3>
                 <div class="sponsors__grid">
+                    
                     <div class="sponsor-card">
                     <h4>Patrocínio Prata</h4>
                     <img src="assets/imgs/logo_sbais.png" alt="SBAIS - Patrocínio Prata">
                     <a href="https://sbais.com.br/" target="_blank" class="cta">Conheça</a>
                     </div>
+
+                    <div class="sponsor-card">
+                    <h4>Apoio Financeiro</h4>
+                    <img src="/assets/imgs/logo_faepa.png" alt="Apoiador Financeiro FAEPA">
+                    <a href="https://faepa.br/" target="_blank" class="cta">Conheça</a>
+                    </div>
+
                 </div>
                 </div>
 
-                <!-- Linha 2: Apoiadores Institucionais -->
+                <!-- Linha 3: Apoiadores Institucionais -->
                 <div class="sponsors__group">
                 <h3 class="sponsors__subtitle">Apoiadores Institucionais</h3>
+                
                 <div class="sponsors__grid">
-                    <div class="sponsor-card">
-                    <img src="/assets/imgs/logo_usp.png" alt="Apoiador Institucional 1">
-                    <a href="#" target="_blank" class="cta">Conheça</a>
-                    </div>
-                    <div class="sponsor-card">
-                    <img src="/assets/imgs/logo_fmrp.png" alt="Apoiador Institucional 2">
-                    <a href="#" target="_blank" class="cta">Conheça</a>
-                    </div>
-                    <div class="sponsor-card">
-                    <img src="/assets/imgs/logo_cnpq.png" alt="Apoiador Institucional 3">
-                    <a href="#" target="_blank" class="cta">Conheça</a>
-                    </div>
-                    <div class="sponsor-card">
-                    <img src="/assets/imgs/logo_fapesp.png" alt="Apoiador Institucional 4">
-                    <a href="#" target="_blank" class="cta">Conheça</a>
-                    </div>
-                    <div class="sponsor-card">
-                    <img src="/assets/imgs/logo_prgusp.png" alt="Apoiador Institucional 5">
-                    <a href="#" target="_blank" class="cta">Conheça</a>
-                    </div>
-                    <div class="sponsor-card">
-                    <img src="/assets/imgs/logo_capes.png" alt="Apoiador Institucional 6">
-                    <a href="#" target="_blank" class="cta">Conheça</a>
-                    </div>
-                    <div class="sponsor-card">
-                    <img src="/assets/imgs/logo_cdfc.png" alt="Apoiador Institucional 7">
-                    <a href="#" target="_blank" class="cta">Conheça</a>
-                    </div>
-                </div>
-                </div>
+                  
+                  <div class="sponsor-card sponsor-card--logo">
+                    <a href="https://www5.usp.br/" target="_blank" class="sponsor-card__link">
+                      <img src="/assets/imgs/logo_usp.png" alt="Logo USP">
+                    </a>
+                  </div>
+                  
+                  <div class="sponsor-card sponsor-card--logo">
+                    <a href="https://www.fmrp.usp.br/" target="_blank" class="sponsor-card__link">
+                      <img src="/assets/imgs/logo_fmrp.png" alt="Logo FMRP">
+                    </a>
+                  </div>
+                  
+                  <div class="sponsor-card sponsor-card--logo">
+                    <a href="https://www.gov.br/cnpq/pt-br" target="_blank" class="sponsor-card__link">
+                      <img src="/assets/imgs/logo_cnpq.png" alt="Logo CNPq">
+                    </a>
+                  </div>
+                  
+                  <div class="sponsor-card sponsor-card--logo">
+                    <a href="https://fapesp.br/" target="_blank" class="sponsor-card__link">
+                      <img src="/assets/imgs/logo_fapesp.png" alt="Logo FAPESP">
+                    </a>
+                  </div>
+                  
+                  <div class="sponsor-card sponsor-card--logo">
+                    <a href="https://www.prg.usp.br/" target="_blank" class="sponsor-card__link">
+                      <img src="/assets/imgs/logo_prgusp.png" alt="Logo Pró-Reitoria de Graduação USP">
+                    </a>
+                  </div>
+                  
+                  <div class="sponsor-card sponsor-card--logo">
+                    <a href="https://www.gov.br/capes/pt-br" target="_blank" class="sponsor-card__link">
+                      <img src="/assets/imgs/logo_capes.png" alt="Logo CAPES">
+                    </a>
+                  </div>
+                  
+                  <div class="sponsor-card sponsor-card--logo">
+                    <a href="https://cdfc.fmrp.usp.br/" target="_blank" class="sponsor-card__link">
+                      <img src="/assets/imgs/logo_cdfc.png" alt="Logo CDFC">
+                    </a>
+                  </div>
 
-                <!-- Linha 3: Apoiadores Financeiros -->
-                <div class="sponsors__group">
-                <h3 class="sponsors__subtitle">Apoiadores Financeiros</h3>
-                <div class="sponsors__grid">
-                    <div class="sponsor-card">
-                    <img src="/assets/imgs/logo_faepa.png" alt="Apoiador Financeiro 1">
-                    <a href="#" target="_blank" class="cta">Conheça</a>
                 </div>
-                </div>
-            </div>
+              </div>
+
+
         </section>
 
         <!--Edições anteriores-->
@@ -234,8 +248,8 @@
                     </a>
 
                     <!-- Edição 2023 -->
-                    <a href="https://exemplo.com/edicao-2023" class="edition-card">
-                        <img src="assets/edicao2023.jpg" alt="Imagem da edição 2023">
+                    <a href="https://www.fmrp.usp.br/pb/arquivos/15777" class="edition-card">
+                        <img src="assets/imgs/sc2023.png" alt="Imagem da edição 2023">
                         <p>Edição 2023</p>
                     </a>
 

@@ -1,6 +1,12 @@
-// assets/js/main.js
+// assets/js/main.js (VERSÃO CORRIGIDA)
 
-function loadComponent(url, elementId) {
+/**
+ * Função principal para carregar componentes HTML.
+ * @param {string} url - O caminho para o arquivo HTML (ex: '/partials/header.html')
+ * @param {string} elementId - O ID do elemento onde o HTML será injetado.
+ * @param {function} [callback] - Uma função opcional a ser executada APÓS o carregamento.
+ */
+function loadComponent(url, elementId, callback) {
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -9,7 +15,15 @@ function loadComponent(url, elementId) {
             return response.text();
         })
         .then(data => {
-            document.getElementById(elementId).innerHTML = data;
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = data;
+            }
+            
+            // 4. Executa a função de callback APÓS o conteúdo ser carregado
+            if (callback) {
+                callback();
+            }
         })
         .catch(error => {
             console.error('Falha na operação de fetch:', error);
@@ -17,11 +31,26 @@ function loadComponent(url, elementId) {
         });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    loadComponent('/partials/header.html', 'header-placeholder');
-    loadComponent('/partials/footer.html', 'footer-placeholder');
+/**
+ * 1. Esta função SÓ será chamada DEPOIS que o header.html for carregado.
+ * Ela configura o menu mobile.
+ */
+function setupMobileMenu() {
+    const mobileMenuButton = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
 
-    // --- Código do carrossel com loop infinito ---
+    if (mobileMenuButton && navLinks) {
+        mobileMenuButton.addEventListener('click', () => {
+            // Adiciona ou remove a classe "nav-active" do menu
+            navLinks.classList.toggle('nav-active');
+        });
+    }
+}
+
+/**
+ * 2. Esta função configura o carrossel da home page.
+ */
+function setupCarousel() {
     const track = document.querySelector(".presenters__track");
     const prevBtn = document.querySelector(".carousel-btn.prev");
     const nextBtn = document.querySelector(".carousel-btn.next");
@@ -47,5 +76,19 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-});
+}
 
+
+/**
+ * 3. Quando a página carregar, executa tudo.
+ */
+document.addEventListener("DOMContentLoaded", function() {
+    // Carrega o header e, DEPOIS, executa setupMobileMenu
+    loadComponent('/partials/header.html', 'header-placeholder', setupMobileMenu);
+    
+    // Carrega o footer (sem callback)
+    loadComponent('/partials/footer.html', 'footer-placeholder');
+
+    // Configura o carrossel (ele já está na página, não precisa esperar)
+    setupCarousel();
+});
