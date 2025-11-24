@@ -372,6 +372,70 @@ nav{
   margin: 0 auto;
 }
 
+/* Imagens dos professores */
+.about_professors {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 20px;
+  flex: 2;
+  min-width: 300px;
+}
+
+.professor__card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: calc(33.333% - 10px);
+    box-sizing: border-box;
+    min-width: 180px;
+}
+
+.professor__card img {
+    width: 150px; /* Tamanho fixo para as imagens dos professores */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.professor__info h3 {
+    font-size: 1.1em;
+    color: #333;
+    margin: 0 0 5px 0;
+    text-align: center;
+}
+
+.professor__info p {
+    font-size: 0.85em;
+    color: #666;
+    line-height: 1.4;
+    margin: 0;
+    border-top: 1px solid #ccc;   /* LINHA */
+    padding-top: 10px;            /* espaço entre linha e texto */
+    margin-top: 10px;             /* separa da foto */
+}
+
+.about__coordinators {
+    grid-column: 2 / 3;
+    text-align: right;  /* ou center */
+}
+
+.about__coordinators h3 {
+    font-size: 1.2rem;
+    color: var(--blue-800);
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+
 /* layout do APRESENTADORES */
 .presenters {
   background: var(--blue-800); /* azul escuro do fundo */
