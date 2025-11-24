@@ -77,7 +77,7 @@ nav{
 }
 
 .logo img{
-  width: 120px;
+  width: 175px;
   height: auto;
 }
 
@@ -1144,7 +1144,7 @@ body.speakers-page::after {
   align-items: center;
 }
 .footer-logos img {
-  height: 50px;
+  height: 80px;
   width: auto;
   object-fit: contain;
 }
@@ -1156,8 +1156,8 @@ body.speakers-page::after {
   align-items: center;
 }
 .footer-social img {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
   filter: none;
   transition: transform 0.2s, opacity 0.2s;
 }
