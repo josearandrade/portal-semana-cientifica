@@ -880,7 +880,7 @@ position: absolute;
   box-shadow: 0 16px 28px rgba(0,0,0,.35);
 }
 
-.award-card img {
+.award-card img:not(.emoji-icon):not(.invaluable) {
   width: 130px;
   height: 130px;
   object-fit: cover;
@@ -946,6 +946,25 @@ position: absolute;
   width: 320px;
   height: 140px;
   opacity: 0.4;
+}
+
+.invaluable {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+
+/* =======================================
+    ESTILOS ADICIONAIS - ÍCONES DE EMOJI
+==========================================*/
+
+.emoji-icon {
+    width: 5em;
+    height: auto;
+    vertical-align: middle; /* Alinha o meio da imagem com o meio do texto */
+    position: relative;
+    top: -2px;
 }
 
 /* =========================
